@@ -1,11 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SliderLanding from "../components/SliderLanding";
+
+const images = [
+  '/images/0.webp',
+  '/images/1.webp',
+  '/images/2.webp',
+  '/images/3.webp',
+  '/images/4.webp'
+]
 ---
 
 <Layout title="TopZone">
   <main>
-    <SliderLanding />
+    <SliderLanding images={images}/>
     <div>
       <p>Welcome to ...</p>
       <h1></h1>
