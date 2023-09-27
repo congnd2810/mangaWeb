@@ -1,8 +1,10 @@
 import { useState } from "preact/hooks";
 import { useEffect } from "preact/hooks";
 
-export default function SliderLanding( { props }: any) {
+export default function SliderLanding( props  : any) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [img, setImg] = useState(props.images[currentIndex])
+  
   const nextSlide = () => {
     const newIndex = (currentIndex + 1) % props.images.length;
     setCurrentIndex(newIndex);
@@ -12,8 +14,13 @@ export default function SliderLanding( { props }: any) {
     setCurrentIndex(newIndex);
   };
 
+  useEffect(() => {
+    setImg(props.images[currentIndex])
+    console.log(currentIndex)
+  }, [currentIndex])
+
   return (
-    <div className="relative w-full">
+    <div className="relative w-full h-10">
       <div className="absolute inset-0 flex items-center justify-center">
         <img src={props.images[currentIndex]} alt={`Slide ${currentIndex}`} />
       </div>
